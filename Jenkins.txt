@@ -25,7 +25,7 @@ pipeline {
 	    }
 	    stage('Archive'){
                 steps{
-			archiveArtifacts 'C:/Results/**'
+			archiveArtifacts 'C:\\Results\\**'
 		}
 	    }
     }
