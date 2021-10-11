@@ -23,13 +23,15 @@ pipeline {
 			}
 		}
 	    }
+	    stage('Archive'){
+                steps{
+			archive 'C:\\Results\\**'
+		}
+	    }
     }
     post{
     	cleanup{
         	cleanWs()
     	}
-	always{
-		archiveArtifacts 'C:\\Results\\**'
-	}
     }
 }
