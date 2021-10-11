@@ -29,7 +29,7 @@ pipeline {
         	cleanWs()
     	}
 	always{
-		archiveArtifacts 'C:\\Results'
+		archiveArtifacts "${WORKSPACE}"
 	}
     }
 }
