@@ -9,7 +9,7 @@ namespace JenkinsMsTest
         public void TestMethod1()
         {
             Number animal = new Number();
-            int expectedNumber = 4;
+            int expectedNumber = 7;
             int number = animal.GetNumber(expectedNumber);
             Assert.AreEqual(expectedNumber, number);
         }
