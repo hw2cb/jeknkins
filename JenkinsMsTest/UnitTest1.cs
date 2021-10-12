@@ -10,6 +10,7 @@ namespace JenkinsMsTest
         {
             Number animal = new Number();
             int expectedNumber = 8;
+	    
             int number = animal.GetNumber(expectedNumber);
             Assert.AreEqual(expectedNumber, number);
         }
