@@ -1,6 +1,13 @@
 pipeline {
     agent any
     stages {
+	    stage('Clean'){
+		steps{
+		    cleanup{
+		        cleanWs()
+		    }
+		}
+	    }
 	    stage('Clone'){
 	        steps{
 		
@@ -24,8 +31,13 @@ pipeline {
 	    }
 	    stage('Archive'){
                 steps{
-			archiveArtifacts 'C:\\Results\\*.trx'
+			archiveArtifacts artifacts:'C:\\Results\\*.trx', allowEmptyArchive: 'true'
 		}
 	    }
     }
+    post { 
+      cleanup {
+          cleanWs()
+      }
+  }
 }
