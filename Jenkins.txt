@@ -23,7 +23,7 @@ pipeline {
 	    }
 	    stage('Archive'){
                 steps{
-			archiveArtifacts artifacts:'C:/Results/*.trx', allowEmptyArchive: 'true'
+			archiveArtifacts artifacts:'C:\Results\*.trx', allowEmptyArchive: 'true'
 		}
 	    }
     }
