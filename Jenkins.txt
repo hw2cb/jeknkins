@@ -24,7 +24,7 @@ pipeline {
 	    stage('Archive'){
                 steps{
 			dir('C:\\Results\\'){
-				archiveArtifacts artifacts: 'custom_file_name.trx'
+				archiveArtifacts artifacts: '**'
 			}
 		}
 	    }
