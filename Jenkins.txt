@@ -26,7 +26,7 @@ pipeline {
 			dir('C:\\Results\\'){
 				bat('md C:\\Results\\archive')
 				bat('xcopy "C:\\Results\\bin" "C:\\Results\\archive" /E /Y')
-				bat('xcopy "C:\\Results\\*.trx" "C:\\Results\\archive" /E /Y')
+				bat('xcopy "C:\\Results\\*.trx" "C:\\Results\\archive" /E /Y /S')
 				zip zipFile: '$BUILD_NUMBER.zip', archive:false, dir: 'archive'
 				archiveArtifacts artifacts: '$BUILD_NUMBER.zip'
 			}
