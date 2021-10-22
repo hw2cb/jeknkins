@@ -24,8 +24,11 @@ pipeline {
 	    stage('Archive'){
                 steps{
 			dir('C:\\Results\\'){
-				zip zipFile: '${BUILD_NUMBER}.zip', archive:false, dir: 'archive'
-				archiveArtifacts artifacts: '${BUILD_NUMBER}.zip'
+				bat('md C:\\Results\\archive')
+				bat('xcopy "C\\Results\\bin" "C:\\Results\\archive"')
+				bat('xcopy "C\\Results\\*.trx" "C:\\Results\\archive"')
+				zip zipFile: '$BUILD_NUMBER.zip', archive:false, dir: 'archive'
+				archiveArtifacts artifacts: '$BUILD_NUMBER.zip'
 			}
 		}
 	    }
