@@ -23,11 +23,9 @@ pipeline {
 	    }
 	    stage('Archive'){
                 steps{
-			dir('C:\\Results\\'){
-				bat('md C:\\Results\\archive')
-				bat('xcopy "C:\\Results\\bin" "C:\\Results\\archive" /E /Y')
-				zip zipFile: '$BUILD_NUMBER.zip', archive:false, dir: 'archive'
-				archiveArtifacts artifacts: '$BUILD_NUMBER.zip'
+			dir('C:\\'){
+				zip zipFile: '$ BUILD_NUMBER.zip', archive:false, dir: 'Results'
+				archiveArtifacts artifacts: '$ BUILD_NUMBER.zip'
 			}
 		}
 	    }
