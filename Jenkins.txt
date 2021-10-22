@@ -24,7 +24,8 @@ pipeline {
 	    stage('Archive'){
                 steps{
 			dir('C:\\Results\\'){
-				archiveArtifacts artifacts: '**'
+				zip zipFile: '${BUILD_NUMBER}.zip', archive:false, dir: 'archive'
+				archiveArtifacts artifacts: '${BUILD_NUMBER}.zip'
 			}
 		}
 	    }
