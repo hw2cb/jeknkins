@@ -23,7 +23,7 @@ pipeline {
 	    }
 	    stage('Archive'){
 		environment{
-			NAME = currentBuild.name
+			NAME = currentBuild.number
 		}
                 steps{
 			dir('C:\\'){
