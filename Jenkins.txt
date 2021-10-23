@@ -25,8 +25,9 @@ pipeline {
                 steps{
 			dir('C:\\'){
 				echo "Current build: ${BUILD_NUMBER}"
-				zip zipFile: '${env.BUILD_NUMBER}.zip', archive:false, dir: 'Results'
-				archiveArtifacts artifacts: '${env.BUILD_NUMBER}.zip'
+				zip zipFile: 'archive_${BUILD_NUMBER}.zip', archive:false, dir: 'Results'
+				archiveArtifacts artifacts: 'archive_${BUILD_NUMBER}.zip'
+				bat('ren "C:\\archive_${BUILD_NUMBER}.zip" "${BUILD_NUMBER}"')
 			}
 		}
 	    }
