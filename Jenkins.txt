@@ -22,10 +22,13 @@ pipeline {
 		}
 	    }
 	    stage('Archive'){
+		environment{
+			NAME = currentBuild.name
+		}
                 steps{
 			dir('C:\\'){
-				zip zipFile: '${currentBuild.number}.zip', archive:false, dir: 'Results'
-				archiveArtifacts artifacts: '${currentBuild.number}.zip'
+				zip zipFile: 'NAME.zip', archive:false, dir: 'Results'
+				archiveArtifacts artifacts: 'NAME.zip'
 			}
 		}
 	    }
