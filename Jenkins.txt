@@ -24,9 +24,9 @@ pipeline {
 	    stage('Archive'){
                 steps{
 			dir('C:\\'){
-				VARIABLEA=${BUILD_NUMBER} 
-				zip zipFile: 'VARIABLEA.zip', archive:false, dir: 'Results'
-				archiveArtifacts artifacts: 'VARIABLEA.zip'
+				def version = currentBuild.number
+				zip zipFile: 'version.zip', archive:false, dir: 'Results'
+				archiveArtifacts artifacts: 'version.zip'
 			}
 		}
 	    }
