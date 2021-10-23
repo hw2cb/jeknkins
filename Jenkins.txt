@@ -27,9 +27,9 @@ pipeline {
 		}
                 steps{
 			dir('C:\\'){
-				echo "Current build: $env.VER"
-				zip zipFile: 'archive_$ env.VER.zip', archive:false, dir: 'Results'
-				archiveArtifacts artifacts: 'archive_$ env.VER.zip'
+				echo "Current build: ${BUILD_NUMBER}"
+				zip zipFile: '${BUILD_NUMBER}.zip', archive:false, dir: 'Results'
+				archiveArtifacts artifacts: '${BUILD_NUMBER}.zip'
 			}
 		}
 	    }
