@@ -22,11 +22,9 @@ pipeline {
 		}
 	    }
 	    stage('Archive'){
-		environment{
-			NAME = '${BUILD_NUMBER}'
-		}
                 steps{
 			dir('C:\\'){
+				echo "Current build: ${BUILD_NUMBER}"
 				zip zipFile: '${NAME}.zip', archive:false, dir: 'Results'
 				archiveArtifacts artifacts: '${NAME}.zip'
 			}
