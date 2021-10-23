@@ -22,15 +22,14 @@ pipeline {
 		}
 	    }
 	    stage('Archive'){
-		environment
-		{
+		environment{
 			VER = '${BUILD_NUMBER}'
 		}
                 steps{
 			dir('C:\\'){
 				echo "Current build: env.VER"
-				zip zipFile: 'archive_'${env.VER}'.zip', archive:false, dir: 'Results'
-				archiveArtifacts artifacts: 'archive_'${env.VER}.zip'
+				zip zipFile: 'archive_${env.VER}.zip', archive:false, dir: 'Results'
+				archiveArtifacts artifacts: 'archive_${env.VER}.zip'
 			}
 		}
 	    }
