@@ -27,8 +27,8 @@ pipeline {
 		}
                 steps{
 			dir('C:\\'){
-				zip zipFile: 'NAME.zip', archive:false, dir: 'Results'
-				archiveArtifacts artifacts: 'NAME.zip'
+				zip zipFile: '${NAME}.zip', archive:false, dir: 'Results'
+				archiveArtifacts artifacts: '${NAME}.zip'
 			}
 		}
 	    }
