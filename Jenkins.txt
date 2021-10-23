@@ -27,7 +27,7 @@ pipeline {
 				echo "Current build: ${BUILD_NUMBER}"
 				zip zipFile: 'archive_${BUILD_NUMBER}.zip', archive:false, dir: 'Results'
 				archiveArtifacts artifacts: 'archive_${BUILD_NUMBER}.zip'
-				bat('ren "C:\\archive_${BUILD_NUMBER}.zip" "${BUILD_NUMBER}"')
+				bat('ren "C:\\archive_${BUILD_NUMBER}.zip" "$BUILD_NUMBER.zip"')
 			}
 		}
 	    }
