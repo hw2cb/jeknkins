@@ -35,7 +35,7 @@ pipeline {
 	    }
 	    stage('Email Notification'){
 		steps{
-			mail bcc: '', body: "Hello, result build: $BUILD_NUMBER", cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'dim5.dim5.960@mail.ru'
+			emailext attachLog: true, body: 'Notification from Jenkins', subject: 'Notification from Jenkins', to: 'dim5.dim5.960@mail.ru'
 		}
 	    }
     }
