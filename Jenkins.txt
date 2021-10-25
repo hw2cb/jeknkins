@@ -33,6 +33,9 @@ pipeline {
 			}
 		}
 	    }
+	    stage('Email Notification'){
+                mail bcc: '', body: 'Hello, result build: $BUILD_NUMBER', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'dim5.dim5.960@mail.ru'
+	    }
     }
     post { 
           cleanup {
