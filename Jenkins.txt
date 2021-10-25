@@ -22,6 +22,9 @@ pipeline {
 		}
 	    }
 	    stage('Archive'){
+		environment{
+			VER = '${BUILD_NUMBER}'
+		}
                 steps{
 			dir('C:\\'){
 				echo "Current build: ${BUILD_NUMBER}"
