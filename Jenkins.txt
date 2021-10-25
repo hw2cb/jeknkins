@@ -35,13 +35,11 @@ pipeline {
 	    }
 	    stage('Email Notification'){
 		steps{
+			emailext attachLog: true, to: 'dim5.dim5.960@mail.ru'
 		}
 	    }
     }
     post { 
-	  always{
-		emailext attachLog: true, body: 'Notification from Jenkins', subject: 'Notification from Jenkins', to: 'dim5.dim5.960@mail.ru'
-	  }
           cleanup {
               cleanWs()
           }
