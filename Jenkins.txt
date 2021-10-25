@@ -35,7 +35,7 @@ pipeline {
 	    }
 	    stage('Email Notification'){
 		steps{
-			emailext attachLog: true, to: 'dim5.dim5.960@mail.ru'
+			emailext body: default, subject: default, to: 'dim5.dim5.960@mail.ru'
 		}
 	    }
     }
