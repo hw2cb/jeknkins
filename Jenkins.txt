@@ -33,6 +33,14 @@ pipeline {
 			}
 		}
 	    }
+	    stage('Deploy'){
+		steps{
+			dir('C:\\'){
+				bat("md C:\\Deploy")
+				unZip zipFile: "${BUILD_NUMBER}", dir: 'C:\\Deploy'
+			}
+		}
+	    }
     }
     post {
 	  always{
