@@ -22,20 +22,17 @@ pipeline {
 		}
 	    }
 	    stage('Archive'){
-		environment{
-			VER = '${BUILD_NUMBER}'
-		}
                 steps{
 			dir('C:\\'){
 				echo "Current build: ${BUILD_NUMBER}"
-				zip zipFile: '${BUILD_NUMBER}.zip', archive:false, dir: 'Results'
-				archiveArtifacts artifacts: '${BUILD_NUMBER}.zip'
+				zip zipFile: "${BUILD_NUMBER}.zip", archive:false, dir: 'Results'
+				archiveArtifacts artifacts: "${BUILD_NUMBER}.zip"
 			}
 		}
 	    }
 	    stage('Email Notification'){
 		steps{
-			mail bcc: '', body: 'Hello, result build: $BUILD_NUMBER', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'dim5.dim5.960@mail.ru'
+			mail bcc: '', body: "Hello, result build: $BUILD_NUMBER", cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'dim5.dim5.960@mail.ru'
 		}
 	    }
     }
